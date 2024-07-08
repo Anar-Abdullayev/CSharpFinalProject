@@ -10,9 +10,6 @@ namespace CSharpFinalProject
         {
             Database.Categories = Database.ReadJson<Category>(ConfigurationManager.AppSettings["dbCategoryPath"]);
             Database.Users = Database.ReadJson<User>(ConfigurationManager.AppSettings["dbUsersPath"]);
-            User user = new User() { IsAdmin = true, Name = "Anar", Surname = "Abdullayev", Username = "anar", Password = "1234" };
-            Database.Users.Add(user);
-            Database.SaveJson(Database.Users, ConfigurationManager.AppSettings["dbUsersPath"]!);
             
             string? marketName = ConfigurationManager.AppSettings["marketName"];
             Market myMarket = new Market(marketName);

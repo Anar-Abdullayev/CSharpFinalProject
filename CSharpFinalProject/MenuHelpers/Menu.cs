@@ -8,6 +8,12 @@ namespace CSharpFinalProject.MenuHelpers
 {
     internal static class Menu
     {
+        public static void PrintTitle(string title)
+        {
+            Console.Clear();
+            Console.WriteLine(title);
+            Console.WriteLine();
+        }
         public static string ShowMenu(string title, List<string> args, string? menuInformation)
         {
             int currentIndex = 0;
