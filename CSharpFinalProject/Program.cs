@@ -18,8 +18,7 @@ namespace CSharpFinalProject
             Market myMarket = new Market(marketName);
             while (true)
             {
-                Menu.Title = myMarket.Name;
-                string choice = Menu.ShowMenu(Menu.Title, new List<string>() { "Login as Administrator", "Login as User", "Register as User", "Exit" }, "Press enter when you want to choose selection.");
+                string choice = Menu.ShowMenu(myMarket.Name, new List<string>() { "Login as Administrator", "Login as User", "Register as User", "Exit" }, "Press enter when you want to choose selection.");
                 switch (choice)
                 {
                     case "Login as Administrator":

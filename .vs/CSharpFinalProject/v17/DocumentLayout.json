@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\StepIT\\CSharpFinalProject\\",
+  "WorkspaceRootPath": "D:\\StepIT\\CSharpFinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|e:\\stepit\\csharpfinalproject\\csharpfinalproject\\menuhelpers\\adminmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|solutionrelative:csharpfinalproject\\menuhelpers\\adminmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|e:\\stepit\\csharpfinalproject\\csharpfinalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|d:\\stepit\\csharpfinalproject\\csharpfinalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|solutionrelative:csharpfinalproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|e:\\stepit\\csharpfinalproject\\csharpfinalproject\\menuhelpers\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|d:\\stepit\\csharpfinalproject\\csharpfinalproject\\menuhelpers\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|solutionrelative:csharpfinalproject\\menuhelpers\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|d:\\stepit\\csharpfinalproject\\csharpfinalproject\\menuhelpers\\adminmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|solutionrelative:csharpfinalproject\\menuhelpers\\adminmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,43 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Menu.cs",
-              "DocumentMoniker": "E:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\Menu.cs",
+              "DocumentMoniker": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\Menu.cs",
               "RelativeDocumentMoniker": "CSharpFinalProject\\MenuHelpers\\Menu.cs",
-              "ToolTip": "E:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\Menu.cs",
+              "ToolTip": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\Menu.cs",
               "RelativeToolTip": "CSharpFinalProject\\MenuHelpers\\Menu.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAawBEAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-08T11:19:10.949Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "E:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\Program.cs",
+              "DocumentMoniker": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\Program.cs",
               "RelativeDocumentMoniker": "CSharpFinalProject\\Program.cs",
-              "ToolTip": "E:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\Program.cs",
+              "ToolTip": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\Program.cs",
               "RelativeToolTip": "CSharpFinalProject\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAA4AAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAawBMAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-08T10:59:23.879Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AdminMenu.cs",
-              "DocumentMoniker": "E:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\AdminMenu.cs",
+              "DocumentMoniker": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\AdminMenu.cs",
               "RelativeDocumentMoniker": "CSharpFinalProject\\MenuHelpers\\AdminMenu.cs",
-              "ToolTip": "E:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\AdminMenu.cs",
+              "ToolTip": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\AdminMenu.cs",
               "RelativeToolTip": "CSharpFinalProject\\MenuHelpers\\AdminMenu.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAwAAAAkAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwAsAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-08T10:58:40.607Z",
               "EditorCaption": ""

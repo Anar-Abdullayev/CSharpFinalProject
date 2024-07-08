@@ -15,7 +15,7 @@ namespace CSharpFinalProject.MenuHelpers
             {
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.Clear();
-                Console.WriteLine(Title);
+                Console.WriteLine(title);
                 Console.WriteLine();
                 if (menuInformation is not null)
                 {

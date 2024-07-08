@@ -10,7 +10,6 @@ namespace CSharpFinalProject.MenuHelpers
 {
     internal static class AdminMenu
     {
-        private static string Title;
         public static void StartLogin()
         {
             Console.Clear();
