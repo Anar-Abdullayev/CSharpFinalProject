@@ -1,0 +1,38 @@
+﻿using CSharpFinalProject.MenuHelpers;
+using CSharpFinalProject.Models;
+using System.Configuration;
+
+namespace CSharpFinalProject
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Database.Categories = Database.ReadJson<Category>(ConfigurationManager.AppSettings["dbCategoryPath"]);
+            Database.Users = Database.ReadJson<User>(ConfigurationManager.AppSettings["dbUsersPath"]);
+            User user = new User() { IsAdmin = true, Name = "Anar", Surname = "Abdullayev", Username = "anar", Password = "1234" };
+            Database.Users.Add(user);
+            Database.SaveJson(Database.Users, ConfigurationManager.AppSettings["dbUsersPath"]!);
+            
+            string? marketName = ConfigurationManager.AppSettings["marketName"];
+            Market myMarket = new Market(marketName);
+            while (true)
+            {
+                Menu.Title = myMarket.Name;
+                string choice = Menu.ShowMenu(Menu.Title, new List<string>() { "Login as Administrator", "Login as User", "Register as User", "Exit" }, "Press enter when you want to choose selection.");
+                switch (choice)
+                {
+                    case "Login as Administrator":
+                        AdminMenu.StartLogin();
+                        break;
+                    case "Login as User":
+                        break;
+                    case "Register as User":
+                        break;
+                    case "Exit":
+                        return;
+                }
+            }
+        }
+    }
+}
