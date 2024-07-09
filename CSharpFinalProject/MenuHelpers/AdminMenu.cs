@@ -16,7 +16,7 @@ namespace CSharpFinalProject.MenuHelpers
         {
             Title = ConfigurationManager.AppSettings["titlePrototype"]!.Replace("REPLACED", "Administrator Section");
             Menu.PrintTitle(Title);
-        usrName:
+            usrName:
             Console.Write("Username: ");
             string? username = Console.ReadLine();
             if (string.IsNullOrEmpty(username) || string.IsNullOrWhiteSpace(username))
@@ -35,6 +35,13 @@ namespace CSharpFinalProject.MenuHelpers
                 return;
             }
 
+            if (!AdministratorController.CurrentUser.IsAdmin)
+            {
+                Console.WriteLine("You have no administrative privileges! Press any key to continue...");
+                Console.ReadKey();
+                return;
+            }
+
             StartMainMenu();
         }
 
@@ -42,7 +49,7 @@ namespace CSharpFinalProject.MenuHelpers
         {
             while (true)
             {
-                string choice = Menu.ShowMenu(Title, new List<string>() { "Show stock", "Add new category", "Show sell history", "Back" }, null);
+                string choice = Menu.ShowMenu(Title, new List<string>() { "Show stock", "Show sell history", "Save changes", "Log out" }, null);
 
                 switch (choice)
                 {
@@ -51,7 +58,13 @@ namespace CSharpFinalProject.MenuHelpers
                         break;
                     case "Show sell history":
                         break;
-                    case "Back":
+                    case "Save changes":
+                        Database.SaveJson(Database.Categories, ConfigurationManager.AppSettings["dbCategoryPath"]);
+                        Console.Clear();
+                        Console.WriteLine("Changes has been saved! Press any key to continue...");
+                        Console.ReadKey();
+                        break;
+                    case "Log out":
                         return;
                 }
             }
@@ -63,7 +76,6 @@ namespace CSharpFinalProject.MenuHelpers
             {
                 List<string> categories = Database.Categories!.Select(x => x.Name).ToList();
                 categories.Add("Add new category");
-                categories.Add("Delete category");
                 categories.Add("Back");
 
                 string choice = Menu.ShowMenu(Title, categories, "Select category to see sub-products. Alternatively you can add new category.");
@@ -85,7 +97,7 @@ namespace CSharpFinalProject.MenuHelpers
         private static void StartAddNewCategory()
         {
             Menu.PrintTitle(Title);
-        retryCategoryName:
+            retryCategoryName:
             Console.Write("Enter new category name: ");
             string? categoryName = Console.ReadLine();
             if (categoryName is null)
@@ -114,22 +126,206 @@ namespace CSharpFinalProject.MenuHelpers
             Category category = Database.Categories!.First(x => x.Name == categoryName);
             while (true)
             {
-                List<string> productList = category.Products is not null ? category.Products.Select(x=>x.Name).ToList() : new List<string>();
+                List<string> productList = category.Products is not null ? category.Products.Select(x => x.Name).ToList() : new List<string>();
                 productList.Add("Add new product");
+                productList.Add("Delete current category");
+                productList.Add("Change name of category");
                 productList.Add("Back");
 
                 string choice = Menu.ShowMenu(Title, productList, "You can select a product to show menu for product, add a new product or delete existing product");
 
                 switch (choice)
                 {
+                    case "Add new product":
+                        StartAddNewProduct(category);
+                        break;
+                    case "Delete current category":
+                        Console.Clear();
+                        Console.WriteLine($"Do you really want to delete entire category? If yes confirm the category name ({category.Name}): ");
+                        string? catNameToBeDeleted = Console.ReadLine();
+                        Console.Clear();
+                        if (category.Name == catNameToBeDeleted)
+                        {
+                            if (AdministratorController.DeleteCategory(catNameToBeDeleted))
+                                Console.WriteLine("Category has been deleted successfully! Press any key to continue;");
+                            Console.ReadKey();
+                            return;
+                        }
+                        Console.WriteLine("Deletion of category has been terminated! Try again later...");
+                        Console.ReadKey();
+                        break;
+                    case "Change name of category":
+                        Console.Write("Enter new name: ");
+                        string newName = Console.ReadLine();
+                        if (string.IsNullOrEmpty(newName) || string.IsNullOrWhiteSpace(newName))
+                        {
+                            Console.WriteLine("Name can't be empty! Press any key to continue...");
+                        }
+                        else
+                        {
+                            var newCategory = Database.Categories.FirstOrDefault(x => x.Name == newName);
+                            if (newCategory is not null)
+                                Console.WriteLine("Category name already exists! Press any key to continue...");
+                            else
+                            {
+                                category.Name = newName;
+                                Console.WriteLine("Category name has been changed successfully! Press any key to continue...");
+                            }
+                        }
+                        Console.ReadKey();
+                        break;
                     case "Back":
                         return;
-                    case "Add new product":
-                        break;
                     default:
+                        Product product = category.Products!.FirstOrDefault(x => x.Name == choice)!;
+                        StartProductInfo(category, product);
                         break;
                 }
             }
         }
+
+        private static void StartAddNewProduct(Category category)
+        {
+            Console.Clear();
+            Menu.PrintTitle(Title);
+
+            retryName:
+            Console.Write("Enter product name: ");
+            string? productName = Console.ReadLine();
+            if (string.IsNullOrEmpty(productName) || string.IsNullOrWhiteSpace(productName))
+            {
+                Console.WriteLine("Product name can't be empty!");
+                goto retryName;
+            }
+
+            retryPrice:
+            Console.Write("Enter price: ");
+            string? productPrice = Console.ReadLine();
+            double prPrice;
+            if (!double.TryParse(productPrice?.Replace(".", ","), out prPrice))
+            {
+                Console.WriteLine("Product price can't be empty!");
+                goto retryPrice;
+            }
+
+            retryStock:
+            Console.Write("Enter stock quantity: ");
+            string? productStock = Console.ReadLine();
+            double prStock;
+            if (!double.TryParse(productStock?.Replace(".", ","), out prStock))
+            {
+                Console.WriteLine("Product stock can't be empty!");
+                goto retryStock;
+            }
+
+            try
+            {
+                AdministratorController.AddProduct(category, productName, prPrice, prStock);
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                Console.WriteLine(" Press any key to continue...");
+                Console.ReadKey();
+            }
+        }
+
+        private static void StartProductInfo(Category currentCategory, Product product)
+        {
+            while (true)
+            {
+                Console.Clear();
+                Menu.PrintTitle(Title);
+
+                Console.WriteLine($"Product name: {product.Name}");
+                Console.WriteLine($"Price: {product.Price} AZN");
+                Console.WriteLine($"In Stock: {product.StockAmount}");
+                string choice = Menu.ShowMenu("", new List<string>() { "Change name", "Set price", "Set stock amount", "Delete current product", "Back" }, null, false);
+
+                switch (choice)
+                {
+                    case "Change name":
+                        Console.Write("Enter new name: ");
+                        string? productName = Console.ReadLine();
+                        if (string.IsNullOrEmpty(productName) || string.IsNullOrWhiteSpace(productName))
+                        {
+                            Console.WriteLine("Product name can't be empty. Press any key to continue...");
+                        }
+                        else
+                        {
+                            var productState = currentCategory.Products!.FirstOrDefault(p => p.Name == productName);
+                            if (productState is not null)
+                                Console.WriteLine("Product name already exists! Press any key to continue...");
+                            else
+                            {
+                                product.Name = productName;
+                                Console.WriteLine("Product name has been changed. Press any key to continue...");
+                            }
+                        }
+                        Console.ReadKey();
+                        break;
+                    case "Set price":
+                        Console.Write("New price: ");
+                        double newPrice;
+                        if (double.TryParse(Console.ReadLine()?.Replace(".", ","), out newPrice))
+                        {
+                            try
+                            {
+                                product.Price = newPrice;
+                                Console.Write("Price has been changed successfully!");
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.Write(ex.Message);
+                            }
+                        }
+                        else
+                        {
+                            Console.Write("Wrong input!");
+                        }
+                        Console.WriteLine(" Press any key to continue...");
+                        Console.ReadKey();
+                        break;
+                    case "Set stock amount":
+                        Console.Write("New stock: ");
+                        double newStock;
+                        if (double.TryParse(Console.ReadLine()?.Replace(".", ","), out newStock))
+                        {
+                            try
+                            {
+                                product.StockAmount = newStock;
+                                Console.Write("Stock has been changed successfully!");
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.Write(ex.Message);
+                            }
+                        }
+                        else
+                        {
+                            Console.Write("Wrong input!");
+                        }
+                        Console.WriteLine(" Press any key to continue...");
+                        Console.ReadKey();
+                        break;
+                    case "Delete current product":
+                        Console.Write($"Do you want to delete {product.Name} fully? To confirm write its name ({product.Name}): ");
+                        string confirm = Console.ReadLine();
+                        if (confirm == product.Name)
+                        {
+                            AdministratorController.DeleteProduct(currentCategory, confirm);
+                            Console.WriteLine("Product has been deleted successfully! Press any key to continue...");
+                            Console.ReadKey();
+                            return;
+                        }
+                        Console.WriteLine("Product deletion has been terminated! Try again later. Press any key to continue...");
+                        Console.ReadKey();
+                        break;
+                    case "Back":
+                        return;
+                }
+            }
+        }
+
     }
 }

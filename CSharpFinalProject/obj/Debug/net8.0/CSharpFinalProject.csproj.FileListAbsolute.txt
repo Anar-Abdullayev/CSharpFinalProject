@@ -43,3 +43,26 @@ D:\StepIT\CSharpFinalProject\CSharpFinalProject\bin\Debug\net8.0\runtimes\win\li
 D:\StepIT\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\CSharpFi.8B9EFBDA.Up2Date
 D:\StepIT\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\CSharpFinalProject.genruntimeconfig.cache
 D:\StepIT\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\ref\CSharpFinalProject.dll
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\bin\Debug\net8.0\CSharpFinalProject.exe
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\bin\Debug\net8.0\CSharpFinalProject.dll.config
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\bin\Debug\net8.0\CSharpFinalProject.deps.json
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\bin\Debug\net8.0\CSharpFinalProject.runtimeconfig.json
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\bin\Debug\net8.0\CSharpFinalProject.dll
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\bin\Debug\net8.0\CSharpFinalProject.pdb
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\CSharpFinalProject.csproj.AssemblyReference.cache
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\CSharpFinalProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\CSharpFinalProject.AssemblyInfoInputs.cache
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\CSharpFinalProject.AssemblyInfo.cs
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\CSharpFinalProject.csproj.CoreCompileInputs.cache
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\CSharpFinalProject.sourcelink.json
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\CSharpFi.8B9EFBDA.Up2Date
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\CSharpFinalProject.dll
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\refint\CSharpFinalProject.dll
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\CSharpFinalProject.pdb
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\CSharpFinalProject.genruntimeconfig.cache
+C:\Users\Abdullayev Anar\Desktop\CSharpFinalProject\CSharpFinalProject\obj\Debug\net8.0\ref\CSharpFinalProject.dll
