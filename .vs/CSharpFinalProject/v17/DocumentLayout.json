@@ -1,54 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\StepIT\\CSharpFinalProject\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|d:\\stepit\\csharpfinalproject\\csharpfinalproject\\menuhelpers\\usermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|solutionrelative:csharpfinalproject\\menuhelpers\\usermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|d:\\stepit\\csharpfinalproject\\csharpfinalproject\\menuhelpers\\adminmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|solutionrelative:csharpfinalproject\\menuhelpers\\adminmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserMenu.cs",
-              "DocumentMoniker": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
-              "RelativeDocumentMoniker": "CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
-              "ToolTip": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
-              "RelativeToolTip": "CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
-              "ViewState": "AQIAANYAAAAAAAAAAAASwOQAAABAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T18:29:03.864Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AdminMenu.cs",
-              "DocumentMoniker": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\AdminMenu.cs",
-              "RelativeDocumentMoniker": "CSharpFinalProject\\MenuHelpers\\AdminMenu.cs",
-              "ToolTip": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\AdminMenu.cs",
-              "RelativeToolTip": "CSharpFinalProject\\MenuHelpers\\AdminMenu.cs",
-              "ViewState": "AQIAAFkAAAAAAAAAAAAgwGYAAABHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T18:26:48.271Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
