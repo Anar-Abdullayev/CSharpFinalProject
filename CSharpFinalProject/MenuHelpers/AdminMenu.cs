@@ -54,6 +54,7 @@ namespace CSharpFinalProject.MenuHelpers
                         StartShowCategories();
                         break;
                     case "Show sell history":
+                        StartShowHistory();
                         break;
                     case "Save changes":
                         Database.SaveJson(Database.Categories, ConfigurationManager.AppSettings["dbCategoryPath"]);
@@ -67,6 +68,50 @@ namespace CSharpFinalProject.MenuHelpers
             }
         }
 
+        private static void StartShowHistory()
+        {
+            while (true)
+            {
+                string choice = Menu.ShowMenu(Title, new List<string>() { "All history", "Product sell rate", "Back" });
+                switch (choice)
+                {
+                    case "All history":
+                        Console.Clear();
+                        Menu.PrintTitle(Title);
+
+                        foreach (var history in Database.SellHistories)
+                        {
+                            Console.WriteLine($"----------- {history.Username} -----------");
+                            Console.WriteLine($"Time: {history.PurchaseTime.ToString("dd.MM.yyyy HH:mm")}\nProducts:");
+                            foreach (var item in history.ProductList!)
+                                Console.WriteLine(item);
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("Press any key to continue");
+                        Console.ReadKey();
+                        break;
+                    case "Product sell rate":
+                        Console.Clear();
+                        Menu.PrintTitle(Title);
+
+                        double totalSell = Database.GetTotalSellCount();
+                        foreach (var category in Database.Categories)
+                        {
+                            Console.WriteLine(category.Name);
+                            foreach (var product in category.Products!)
+                            {
+                                Console.WriteLine($"\t{product.Name} - Sold {product.SellCount} out of {totalSell}. Rate: {Math.Round(product.SellCount * 100 / totalSell,2)}%");
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("Press any key to continue...");
+                        Console.ReadKey();
+                        break;
+                    case "Back":
+                        return;
+                }
+            }
+        }
         private static void StartShowCategories()
         {
             while (true)

@@ -74,9 +74,10 @@ namespace CSharpFinalProject
             return _userID++;
         }
 
-        public static void IncreaseTotalCount(double count)
+        public static void IncreaseTotalSellCount(double count)
         {
             _totalSellCount += count;
         }
+        public static double GetTotalSellCount() => _totalSellCount;
     }
 }

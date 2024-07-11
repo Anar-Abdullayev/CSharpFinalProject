@@ -67,7 +67,7 @@ namespace CSharpFinalProject.Controllers
                         var foundProduct = category.Products.FirstOrDefault(x => x.Name == myProduct.Name);
                         if (foundProduct is not null)
                         {
-                            Database.IncreaseTotalCount(myProduct.StockAmount);
+                            Database.IncreaseTotalSellCount(myProduct.StockAmount);
                             foundProduct.SellCount += myProduct.StockAmount;
                             foundProduct.StockAmount -= myProduct.StockAmount;
                             string productString = myProduct.Name + " - " + myProduct.StockAmount + " quantify/mass - Total " + Math.Round(myProduct.StockAmount * myProduct.Price, 2) + " AZN";
