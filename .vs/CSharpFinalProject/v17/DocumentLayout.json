@@ -1,14 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\",
+  "WorkspaceRootPath": "D:\\StepIT\\CSharpFinalProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|c:\\users\\abdullayev anar\\desktop\\csharpfinalproject\\csharpfinalproject\\menuhelpers\\usermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|d:\\stepit\\csharpfinalproject\\csharpfinalproject\\menuhelpers\\usermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|solutionrelative:csharpfinalproject\\menuhelpers\\usermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|c:\\users\\abdullayev anar\\desktop\\csharpfinalproject\\csharpfinalproject\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|solutionrelative:csharpfinalproject\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,53 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "UserMenu.cs",
-              "DocumentMoniker": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
+              "DocumentMoniker": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
               "RelativeDocumentMoniker": "CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
-              "ToolTip": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
+              "ToolTip": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
               "RelativeToolTip": "CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAkwOAAAAAAAAAA",
+              "ViewState": "AQIAANAAAAAAAAAAAAASwN8AAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T11:03:51.633Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "cafc5e34-6e96-4c89-9499-60943abe3d4a",
-        "Display": 1,
-        "X": 872,
-        "Y": -49,
-        "Width": 1607,
-        "Height": 818,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "app.config",
-              "DocumentMoniker": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\CSharpFinalProject\\app.config",
-              "RelativeDocumentMoniker": "CSharpFinalProject\\app.config",
-              "ToolTip": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\CSharpFinalProject\\app.config",
-              "RelativeToolTip": "CSharpFinalProject\\app.config",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-07-11T13:18:29.374Z",
+              "WhenOpened": "2024-07-11T15:02:42.683Z",
               "EditorCaption": ""
             }
           ]

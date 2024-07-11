@@ -1,14 +1,7 @@
 ﻿using CSharpFinalProject.Controllers;
 using CSharpFinalProject.Extention_Methods;
 using CSharpFinalProject.Models;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 
 namespace CSharpFinalProject.MenuHelpers
 {
@@ -18,7 +11,7 @@ namespace CSharpFinalProject.MenuHelpers
         public static void StartLogin()
         {
             Menu.PrintTitle(ConfigurationManager.AppSettings["marketName"]);
-            usrName:
+        usrName:
             Console.Write("Username: ");
             string? username = Console.ReadLine();
             if (string.IsNullOrEmpty(username) || string.IsNullOrWhiteSpace(username))
@@ -146,69 +139,83 @@ namespace CSharpFinalProject.MenuHelpers
                 Thread.Sleep(2000);
                 return;
             }
-            Console.Clear();
-            Menu.PrintTitle(Title);
-            for (int i = 0; i < UserController.CurrentUser!.Basket?.Count; i++)
+            while (true)
             {
-                Console.WriteLine($"{i + 1}. {UserController.CurrentUser!.Basket![i].Name} - {UserController.CurrentUser!.Basket![i].StockAmount} - {UserController.CurrentUser!.Basket![i].Price} AZN - Total Price: {Math.Round(UserController.CurrentUser!.Basket![i].Price * UserController.CurrentUser!.Basket![i].StockAmount, 2)}");
-            }
-            Console.WriteLine("Total Price: " + UserController.CurrentUser.TotalBasketCost);
-            Console.WriteLine();
-            string selector = Menu.ShowMenu(null, new List<string>() { "Delete product from Basket", "Purchase all", "Back" }, clearConsole: false);
+                Console.Clear();
+                Menu.PrintTitle(Title);
+                for (int i = 0; i < UserController.CurrentUser!.Basket?.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {UserController.CurrentUser!.Basket![i].Name} - {UserController.CurrentUser!.Basket![i].StockAmount} - {UserController.CurrentUser!.Basket![i].Price} AZN - Total Price: {Math.Round(UserController.CurrentUser!.Basket![i].Price * UserController.CurrentUser!.Basket![i].StockAmount, 2)}");
+                }
+                Console.WriteLine("Total Price: " + UserController.CurrentUser.TotalBasketCost);
+                Console.WriteLine();
+                string selector = Menu.ShowMenu(null, new List<string>() { "Delete product from Basket", "Clear all", "Purchase all", "Back" }, clearConsole: false);
 
-            switch (selector)
-            {
-                case "Delete product from Basket":
-                    var myBasket = UserController.CurrentUser.Basket!.Select(x => x.Name).ToList();
-                    myBasket.Add("Cancel");
-                    string choice = Menu.ShowMenu(Title, myBasket, "Select product you want to delete from basket.", true);
-                    if (choice == "Cancel")
-                        break;
-                    var deletedProduct = UserController.CurrentUser.Basket!.First(x => x.Name == choice);
-                    if (UserController.DeleteProductFromBasket(deletedProduct))
-                        Console.WriteLine("Product has been deleted from basket successfully!");
-                    else
-                        Console.WriteLine("Product either not found or an exception occured! Failed to remove!");
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
-                    break;
-                case "Purchase all":
-                    Console.Clear();
-                    Menu.PrintTitle(Title);
-                    Console.WriteLine("Total cost is: " + UserController.CurrentUser.TotalBasketCost + " AZN");
-                    retryPayment:
-                    Console.Write("Enter money: ");
-                    double paid;
-                    if (double.TryParse(Console.ReadLine()?.Replace(".", ","), out paid))
-                    {
-                        if (paid < UserController.CurrentUser.TotalBasketCost)
-                        {
-                            Console.WriteLine("Not enough balance to pay for your basket! Try again later... Press any key to continue...");
-                            Console.ReadKey();
+                switch (selector)
+                {
+                    case "Delete product from Basket":
+                        var myBasket = UserController.CurrentUser.Basket!.Select(x => x.Name).ToList();
+                        myBasket.Add("Cancel");
+                        string choice = Menu.ShowMenu(Title, myBasket, "Select product you want to delete from basket.", true);
+                        if (choice == "Cancel")
                             break;
-                        }
-                        try
-                        {
-                            if (UserController.ConfirmBasket())
-                                Console.WriteLine($"Purchase confirmed! Change: {Math.Round(paid-UserController.CurrentUser.TotalBasketCost,2)} Press any key to continue...");
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.Message);
-                        }
-
+                        var deletedProduct = UserController.CurrentUser.Basket!.First(x => x.Name == choice);
+                        if (UserController.DeleteProductFromBasket(deletedProduct))
+                            Console.WriteLine("Product has been deleted from basket successfully!");
+                        else
+                            Console.WriteLine("Product either not found or an exception occured! Failed to remove!");
+                        Console.WriteLine("Press any key to continue...");
                         Console.ReadKey();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Wrong input!");
-                        goto retryPayment;
-                    }
-                    break;
-                case "Back":
-                    return;
+                        break;
+                    case "Clear all":
+                        Console.WriteLine("Are you sure you want to clear your basket? (Yes/No)");
+                        string yesNo = Console.ReadLine();
+                        if (yesNo == "Yes")
+                        {
+                            UserController.CurrentUser.Basket!.Clear();
+                            return;
+                        }
+                        break;
+                    case "Purchase all":
+                        Console.Clear();
+                        Menu.PrintTitle(Title);
+                        Console.WriteLine("Total cost is: " + UserController.CurrentUser.TotalBasketCost + " AZN");
+                    retryPayment:
+                        Console.Write("Enter money: ");
+                        double paid;
+                        if (double.TryParse(Console.ReadLine()?.Replace(".", ","), out paid))
+                        {
+                            if (paid < UserController.CurrentUser.TotalBasketCost)
+                            {
+                                Console.WriteLine("Not enough balance to pay for your basket! Try again later... Press any key to continue...");
+                                Console.ReadKey();
+                                break;
+                            }
+                            try
+                            {
+                                if (UserController.ConfirmBasket())
+                                    Console.WriteLine($"Purchase confirmed! Change: {Math.Round(paid - UserController.CurrentUser.TotalBasketCost, 2)} Press any key to continue...");
+                                Console.ReadKey();
+                                return;
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                            Console.ReadKey();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Wrong input!");
+                            goto retryPayment;
+                        }
+                        break;
+                    case "Back":
+                        return;
+                }
             }
         }
+
 
         private static void StartMyProfile()
         {
@@ -222,8 +229,13 @@ namespace CSharpFinalProject.MenuHelpers
             List<SellHistory> myHistory = Database.SellHistories.Where(x => x.UserID == UserController.CurrentUser!.ID).ToList();
             foreach (var history in myHistory)
             {
-
+                Console.WriteLine($"Time: {history.PurchaseTime.ToString("dd.MM.yyyy HH:mm")}\nProducts:");
+                foreach (var item in history.ProductList!)
+                    Console.WriteLine(item);
+                Console.WriteLine();
             }
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
         }
 
     }

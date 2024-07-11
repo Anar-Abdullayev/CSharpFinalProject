@@ -24,6 +24,7 @@ namespace CSharpFinalProject
                     case "Register as User":
                         break;
                     case "Exit":
+                        Database.SaveAll();
                         return;
                 }
             }

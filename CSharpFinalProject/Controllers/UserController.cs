@@ -1,10 +1,4 @@
 ﻿using CSharpFinalProject.Models;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharpFinalProject.Controllers
 {
@@ -84,6 +78,7 @@ namespace CSharpFinalProject.Controllers
                 }
             }
 
+            CurrentUser.Basket.Clear();
             Database.SellHistories.Add(history);
 
             Database.SaveAll();

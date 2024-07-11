@@ -1,6 +1,5 @@
 ﻿using CSharpFinalProject.Enums;
 using CSharpFinalProject.Models;
-using System.Configuration;
 
 namespace CSharpFinalProject.Controllers
 {
