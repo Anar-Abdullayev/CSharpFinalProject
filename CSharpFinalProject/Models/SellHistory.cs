@@ -8,9 +8,10 @@ namespace CSharpFinalProject.Models
 {
     internal class SellHistory
     {
-        public required string Username { get; set; }
-        public DateTime PurchaseTime { get; set; }
-        public List<Product>? ProductList { get; set; }
-        public double TotalAmount { get; set; }
+        public required int UserID { get; init; }
+        public required string Username { get; init; }
+        public DateTime PurchaseTime { get; init; }
+        public List<string>? ProductList { get; set; }
+        public double TotalAmount { get; init; }
     }
 }

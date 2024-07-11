@@ -8,9 +8,6 @@ namespace CSharpFinalProject
     {
         static void Main(string[] args)
         {
-            Database.Categories = Database.ReadJson<Category>(ConfigurationManager.AppSettings["dbCategoryPath"]);
-            Database.Users = Database.ReadJson<User>(ConfigurationManager.AppSettings["dbUsersPath"]);
-            
             string? marketName = ConfigurationManager.AppSettings["marketName"];
             Market myMarket = new Market(marketName);
             while (true)
@@ -22,6 +19,7 @@ namespace CSharpFinalProject
                         AdminMenu.StartLogin();
                         break;
                     case "Login as User":
+                        UserMenu.StartLogin();
                         break;
                     case "Register as User":
                         break;

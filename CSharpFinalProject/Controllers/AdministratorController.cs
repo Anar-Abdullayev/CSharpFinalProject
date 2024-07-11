@@ -1,4 +1,5 @@
-﻿using CSharpFinalProject.Models;
+﻿using CSharpFinalProject.Enums;
+using CSharpFinalProject.Models;
 using System.Configuration;
 
 namespace CSharpFinalProject.Controllers
@@ -33,11 +34,11 @@ namespace CSharpFinalProject.Controllers
                 return false;
             return true;
         }
-        public static bool AddProduct(Category category, string name, double price, double stockAmount)
+        public static bool AddProduct(Category category, string name, double price, double stockAmount, Measurement measurement)
         {
             try
             {
-                Product newProduct = new Product() { Name = name, Price = price, StockAmount = stockAmount };
+                Product newProduct = new Product() { Name = name, Price = price, StockAmount = stockAmount, Measurement = measurement };
 
                 if (category.Products is null)
                     category.Products = new List<Product>();

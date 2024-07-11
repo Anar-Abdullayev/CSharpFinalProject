@@ -1,0 +1,23 @@
+[
+    {
+        "UserID": 0,
+        "Username": "anar",
+        "PurchaseTime": "2024-07-11T17:26:47.4584202+04:00",
+        "ProductList": [
+            "Coca Cola (2L) - 1quantify/mass - Total 2 AZN"
+        ],
+        "TotalAmount": 2.3
+    },
+    {
+        "UserID": 0,
+        "Username": "anar",
+        "PurchaseTime": "2024-07-11T17:28:39.2826059+04:00",
+        "ProductList": [
+            "Coca Cola (2L) - 3 quantify/mass - Total 6,9 AZN",
+            "Sprite (2L) - 1 quantify/mass - Total 2,3 AZN",
+            "Fanta (1L) - 5 quantify/mass - Total 5 AZN",
+            "Bread - 2 quantify/mass - Total 1,6 AZN"
+        ],
+        "TotalAmount": 13.5
+    }
+]

@@ -1,4 +1,6 @@
 ﻿using CSharpFinalProject.Controllers;
+using CSharpFinalProject.Enums;
+using CSharpFinalProject.Extention_Methods;
 using CSharpFinalProject.Models;
 using System;
 using System.Collections.Generic;
@@ -208,6 +210,8 @@ namespace CSharpFinalProject.MenuHelpers
                 goto retryPrice;
             }
 
+            string measurementChoice = Menu.ShowMenu("", new List<string>() { Measurement.Quantify.ToString(), Measurement.Mass.ToString() }, "Measurement type:", false);
+
             retryStock:
             Console.Write("Enter stock quantity: ");
             string? productStock = Console.ReadLine();
@@ -217,10 +221,21 @@ namespace CSharpFinalProject.MenuHelpers
                 Console.WriteLine("Product stock can't be empty!");
                 goto retryStock;
             }
-
+            else
+            {
+                if (measurementChoice == Measurement.Quantify.ToString())
+                {
+                    if (prStock % 1 != 0)
+                    {
+                        Console.WriteLine("Product stock quantity must be whole number!");
+                        goto retryStock;
+                    }
+                }
+            }
+            Measurement measurement = Measurement.Quantify.ToString() == measurementChoice ? Measurement.Quantify : Measurement.Mass;
             try
             {
-                AdministratorController.AddProduct(category, productName, prPrice, prStock);
+                AdministratorController.AddProduct(category, productName, prPrice, prStock, measurement);
             }
             catch (Exception ex)
             {
@@ -237,10 +252,8 @@ namespace CSharpFinalProject.MenuHelpers
                 Console.Clear();
                 Menu.PrintTitle(Title);
 
-                Console.WriteLine($"Product name: {product.Name}");
-                Console.WriteLine($"Price: {product.Price} AZN");
-                Console.WriteLine($"In Stock: {product.StockAmount}");
-                string choice = Menu.ShowMenu("", new List<string>() { "Change name", "Set price", "Set stock amount", "Delete current product", "Back" }, null, false);
+                product.PrintProductInfo(true);
+                string choice = Menu.ShowMenu("", new List<string>() { "Change name", "Set price", "Set stock amount", "Set measurement", "Delete current product", "Back" }, null, false);
 
                 switch (choice)
                 {
@@ -306,6 +319,12 @@ namespace CSharpFinalProject.MenuHelpers
                             Console.Write("Wrong input!");
                         }
                         Console.WriteLine(" Press any key to continue...");
+                        Console.ReadKey();
+                        break;
+                    case "Set measurement":
+                        string measurementChoice = Menu.ShowMenu("", new List<string>() { Measurement.Quantify.ToString(), Measurement.Mass.ToString() }, "Measurement type:", false);
+                        product.Measurement = measurementChoice == Measurement.Quantify.ToString() ? Measurement.Quantify : Measurement.Mass;
+                        Console.WriteLine("Measurement has been changed successfully! Press any key to continue...");
                         Console.ReadKey();
                         break;
                     case "Delete current product":
