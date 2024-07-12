@@ -22,6 +22,7 @@ namespace CSharpFinalProject
                         UserMenu.StartLogin();
                         break;
                     case "Register as User":
+                        UserMenu.Register();
                         break;
                     case "Exit":
                         Database.SaveAll();

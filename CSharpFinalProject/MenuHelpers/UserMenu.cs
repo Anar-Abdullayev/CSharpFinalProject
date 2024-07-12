@@ -11,7 +11,7 @@ namespace CSharpFinalProject.MenuHelpers
         public static void StartLogin()
         {
             Menu.PrintTitle(ConfigurationManager.AppSettings["marketName"]);
-        usrName:
+            usrName:
             Console.Write("Username: ");
             string? username = Console.ReadLine();
             if (string.IsNullOrEmpty(username) || string.IsNullOrWhiteSpace(username))
@@ -180,7 +180,7 @@ namespace CSharpFinalProject.MenuHelpers
                         Console.Clear();
                         Menu.PrintTitle(Title);
                         Console.WriteLine("Total cost is: " + UserController.CurrentUser.TotalBasketCost + " AZN");
-                    retryPayment:
+                        retryPayment:
                         Console.Write("Enter money: ");
                         double paid;
                         if (double.TryParse(Console.ReadLine()?.Replace(".", ","), out paid))
@@ -219,7 +219,63 @@ namespace CSharpFinalProject.MenuHelpers
 
         private static void StartMyProfile()
         {
-            throw new NotImplementedException();
+            while (true)
+            {
+                startFromBeginning:
+                Console.Clear();
+                Menu.PrintTitle(Title);
+                User myUser = UserController.CurrentUser!;
+                myUser.PrintUserInfo();
+                Console.WriteLine();
+                string choice = Menu.ShowMenu(null, new List<string>() { "Change my name", "Change my surname", "Set new password", "Save changes", "Back" }, clearConsole: false);
+
+                switch (choice)
+                {
+                    case "Change my name":
+                        Console.Write("New name: ");
+                        string name = Console.ReadLine();
+                        myUser.Name = name;
+                        goto startFromBeginning;
+                    case "Change my surname":
+                        Console.Write("New surname: ");
+                        string surname = Console.ReadLine();
+                        myUser.Surname = surname;
+                        goto startFromBeginning;
+                    case "Set new password":
+                        Console.Write("Current password: ");
+                        string curPass = Console.ReadLine();
+                        if (curPass != myUser.Password)
+                        {
+                            Console.WriteLine("Wrong password!");
+                            break;
+                        }
+                        Console.Write("New password: ");
+                        string newPass1 = Console.ReadLine();
+                        Console.Write("Repeat new password: ");
+                        string newPass2 = Console.ReadLine();
+                        if (newPass1 != newPass2)
+                        {
+                            Console.WriteLine("Passwords are different!");
+                            break;
+                        }
+                        if (!LoginController.PasswordValidation(newPass1))
+                        {
+                            Console.WriteLine("Password must contain at least one upper case, one numeric, and the length must be higher than 8 symbols");
+                            break;
+                        }
+                        myUser.Password = newPass1;
+                        Console.WriteLine("Changed successfully!");
+                        break;
+                    case "Save changes":
+                        Database.SaveJson(Database.Users, ConfigurationManager.AppSettings["dbUsersPath"]!);
+                        Console.WriteLine("Saved successfully!");
+                        break;
+                    case "Back":
+                        return;
+                }
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+            }
         }
         private static void StartMyHistory()
         {
@@ -238,5 +294,32 @@ namespace CSharpFinalProject.MenuHelpers
             Console.ReadKey();
         }
 
+        public static void Register()
+        {
+            Console.Clear();
+            Menu.PrintTitle("Registration");
+
+            Console.Write("Username: ");
+            string username = Console.ReadLine()!;
+            Console.Write("Password: ");
+            string password = Console.ReadLine()!;
+            Console.Write("Name: ");
+            string name = Console.ReadLine()!;
+            Console.Write("Surname: ");
+            string surname = Console.ReadLine()!;
+            User user = new User() { Username = username, Name = name, Surname = surname, Password = password };
+            string registerResultMessage;
+            try
+            {
+                LoginController.Register(user, out registerResultMessage);
+                Console.WriteLine(registerResultMessage);
+                Console.WriteLine("Press any key to continue...");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            Console.ReadKey();
+        }
     }
 }

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "9Vem4EP6Qb8=",
+  "dgSpecHash": "WPilLXcsv7e4ulsuGmwBRoaX68c/V3ZqLqkBx2hFU1pK6Uv1R9W/NDMmhE6tsK36xQ0cj0VH2Yob53d1+Lr79A==",
   "success": true,
-  "projectFilePath": "D:\\StepIT\\CSharpFinalProject\\CSharpFinalProject\\CSharpFinalProject.csproj",
+  "projectFilePath": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\CSharpFinalProject\\CSharpFinalProject.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\anara\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
-    "C:\\Users\\anara\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
-    "C:\\Users\\anara\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
+    "C:\\Users\\Abdullayev Anar\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.0\\system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "C:\\Users\\Abdullayev Anar\\.nuget\\packages\\system.diagnostics.eventlog\\8.0.0\\system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "C:\\Users\\Abdullayev Anar\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

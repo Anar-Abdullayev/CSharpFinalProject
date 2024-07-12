@@ -1,1 +1,1 @@
-[{"ID":0,"Name":"Anar","Surname":"Abdullayev","Username":"anar","Password":"1234","IsAdmin":true,"Basket":[]},{"ID":1,"Name":"Huseyn","Surname":"Abdullayev","Username":"huseyn","Password":"1234","IsAdmin":false,"Basket":[]}]
+[{"ID":0,"Name":"Anar","Surname":"Abdullayev","Username":"anar","Password":"1234Anar","IsAdmin":true,"Basket":[]},{"ID":1,"Name":"Huseyn","Surname":"Abdullayev","Username":"huseyn","Password":"1234","IsAdmin":false,"Basket":[]}]

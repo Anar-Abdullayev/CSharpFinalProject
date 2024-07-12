@@ -1,12 +1,92 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\StepIT\\CSharpFinalProject\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|c:\\users\\abdullayev anar\\desktop\\csharpfinalproject\\csharpfinalproject\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|solutionrelative:csharpfinalproject\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|c:\\users\\abdullayev anar\\desktop\\csharpfinalproject\\csharpfinalproject\\extention methods\\extentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|solutionrelative:csharpfinalproject\\extention methods\\extentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|c:\\users\\abdullayev anar\\desktop\\csharpfinalproject\\csharpfinalproject\\menuhelpers\\usermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C1D00F00-F57B-4A09-8C09-B7E0826B1923}|CSharpFinalProject\\CSharpFinalProject.csproj|solutionrelative:csharpfinalproject\\menuhelpers\\usermenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\CSharpFinalProject\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "CSharpFinalProject\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\CSharpFinalProject\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "CSharpFinalProject\\Controllers\\LoginController.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAUwC8AAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-12T08:03:14.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
+              "RelativeDocumentMoniker": "CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
+              "ToolTip": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
+              "RelativeToolTip": "CSharpFinalProject\\MenuHelpers\\UserMenu.cs",
+              "ViewState": "AQIAAOkAAAAAAAAAAADwvwQBAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-12T07:44:39.772Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "826fc3de-78d1-4b6a-ad27-6ee321b8a9d0",
+        "Display": 1,
+        "X": 902,
+        "Y": 273,
+        "Width": 1607,
+        "Height": 818,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Extentions.cs",
+              "DocumentMoniker": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\CSharpFinalProject\\Extention Methods\\Extentions.cs",
+              "RelativeDocumentMoniker": "CSharpFinalProject\\Extention Methods\\Extentions.cs",
+              "ToolTip": "C:\\Users\\Abdullayev Anar\\Desktop\\CSharpFinalProject\\CSharpFinalProject\\Extention Methods\\Extentions.cs",
+              "RelativeToolTip": "CSharpFinalProject\\Extention Methods\\Extentions.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-12T07:48:48.251Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -14,5 +14,13 @@ namespace CSharpFinalProject.Extention_Methods
             Console.WriteLine("In stock: " + product.StockAmount);
         }
 
+        internal static void PrintUserInfo(this User user)
+        {
+            Console.WriteLine("ID: " + user.ID);
+            Console.WriteLine("Username: " + user.Username);
+            Console.WriteLine("Name: " + user.Name);
+            Console.WriteLine("Surname: " + user.Surname);
+        }
+
     }
 }
