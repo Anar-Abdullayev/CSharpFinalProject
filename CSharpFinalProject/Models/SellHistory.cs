@@ -2,10 +2,15 @@
 {
     internal class SellHistory
     {
-        public required int UserID { get; init; }
-        public required string Username { get; init; }
-        public DateTime PurchaseTime { get; init; }
-        public List<string>? ProductList { get; set; }
-        public double TotalAmount { get; init; }
+        public int HistoryId { get; set; }
+        public int UserId { get; set; }
+        public int ProductId { get; set; }
+        public double ProductAmount { get; set; }
+        public decimal CurrentCashier { get; set; }
+        public DateTime PurchaseTime { get; set; }
+
+
+        public Product Product { get; set; }
+        public User User { get; set; }
     }
 }

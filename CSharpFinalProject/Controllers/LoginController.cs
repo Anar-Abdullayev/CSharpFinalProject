@@ -28,7 +28,6 @@ namespace CSharpFinalProject.Controllers
                 return false;
             }
 
-            user.ID = Database.GetNextUserID();
             user.Username = user.Username.Trim();
             user.Password = user.Password.Trim();
             user.Name = user.Name.Trim();
@@ -36,8 +35,8 @@ namespace CSharpFinalProject.Controllers
             user.IsAdmin = false;
 
             Database.Users.Add(user);
-            Database.SaveJson(Database.Users, ConfigurationManager.AppSettings["dbUsersPath"]!);
-            File.WriteAllText(ConfigurationManager.AppSettings["dbCurrentUserId"]!, user.ID.ToString());
+            Database.Context.Users.Add(user);
+            Database.Context.SaveChanges();
             registerResultMessage = "Registered succesfully!";
             return true;
         }

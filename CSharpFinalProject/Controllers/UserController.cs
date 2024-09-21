@@ -53,6 +53,7 @@ namespace CSharpFinalProject.Controllers
 
         public static bool ConfirmBasket()
         {
+            /*
             if (CurrentUser is null)
                 throw new ArgumentNullException(nameof(CurrentUser) + " can't be null");
 
@@ -82,7 +83,7 @@ namespace CSharpFinalProject.Controllers
             Database.SellHistories.Add(history);
 
             Database.SaveAll();
-
+            */
             return true;
         }
 

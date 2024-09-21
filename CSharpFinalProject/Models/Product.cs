@@ -4,13 +4,15 @@ namespace CSharpFinalProject.Models
 {
     internal class Product : ICloneable
     {
-        private double _price;
-        private double _stockAmount;
+        public int ProductId { get; set; }
         public string Name { get; set; }
-        public double Price { get => _price; set { if (value < 0) throw new ArgumentException("Price can't be lower than 0."); _price = value; } }
-        public double StockAmount { get => _stockAmount; set { if (value < 0) throw new ArgumentException("Stock can't be lower than 0."); _stockAmount = value; } }
+        public double Price { get; set; }
+        public double StockAmount { get; set; }
         public Measurement Measurement { get; set; }
         public double SellCount { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+        public ICollection<SellHistory> SellHistory { get; set; }
 
         public object Clone()
         {

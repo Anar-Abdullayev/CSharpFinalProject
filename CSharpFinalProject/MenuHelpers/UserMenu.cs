@@ -267,7 +267,7 @@ namespace CSharpFinalProject.MenuHelpers
                         Console.WriteLine("Changed successfully!");
                         break;
                     case "Save changes":
-                        Database.SaveJson(Database.Users, ConfigurationManager.AppSettings["dbUsersPath"]!);
+                        Database.Context.SaveChanges();
                         Console.WriteLine("Saved successfully!");
                         break;
                     case "Back":
@@ -279,6 +279,7 @@ namespace CSharpFinalProject.MenuHelpers
         }
         private static void StartMyHistory()
         {
+            /*
             Console.Clear();
             Menu.PrintTitle(Title);
 
@@ -292,6 +293,7 @@ namespace CSharpFinalProject.MenuHelpers
             }
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
+            */
         }
 
         public static void Register()

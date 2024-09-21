@@ -1,5 +1,6 @@
 ﻿using CSharpFinalProject.Enums;
 using CSharpFinalProject.Models;
+using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 
 namespace CSharpFinalProject.Controllers
 {
@@ -15,8 +16,9 @@ namespace CSharpFinalProject.Controllers
                 throw new ArgumentException("The category already exists!");
             try
             {
-                Category newCat = new Category() { Name = newCategoryName, Products = null };
+                Category newCat = new Category() { Name = newCategoryName };
                 Database.Categories!.Add(newCat);
+                Database.Context.Categories.Add(newCat);
                 return true;
             }
             catch (Exception)
@@ -28,7 +30,10 @@ namespace CSharpFinalProject.Controllers
         {
             var category = Database.Categories.FirstOrDefault(x => x.Name == categoryName);
             if (category is not null)
+            {
                 Database.Categories.Remove(category);
+                Database.Context.Categories.Remove(category);
+            }
             else
                 return false;
             return true;
@@ -37,7 +42,7 @@ namespace CSharpFinalProject.Controllers
         {
             try
             {
-                Product newProduct = new Product() { Name = name, Price = price, StockAmount = stockAmount, Measurement = measurement };
+                Product newProduct = new Product() { Name = name, Price = price, StockAmount = stockAmount, Measurement = measurement, Category = category };
 
                 if (category.Products is null)
                     category.Products = new List<Product>();
@@ -45,7 +50,7 @@ namespace CSharpFinalProject.Controllers
                 if (category.Products.FirstOrDefault(x => x.Name == name) is not null)
                     throw new ArgumentException($"The product [ {name} ] already exists!");
 
-                category.Products.Add(newProduct);
+                Database.Context.Products.Add(newProduct);
                 return true;
             }
             catch (ArgumentException ex)

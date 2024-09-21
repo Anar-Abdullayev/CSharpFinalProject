@@ -2,6 +2,7 @@
 using CSharpFinalProject.Enums;
 using CSharpFinalProject.Extention_Methods;
 using CSharpFinalProject.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
 namespace CSharpFinalProject.MenuHelpers
@@ -57,7 +58,7 @@ namespace CSharpFinalProject.MenuHelpers
                         StartShowHistory();
                         break;
                     case "Save changes":
-                        Database.SaveJson(Database.Categories, ConfigurationManager.AppSettings["dbCategoryPath"]);
+                        Database.Context.SaveChanges();
                         Console.Clear();
                         Console.WriteLine("Changes has been saved! Press any key to continue...");
                         Console.ReadKey();
@@ -78,14 +79,21 @@ namespace CSharpFinalProject.MenuHelpers
                     case "All history":
                         Console.Clear();
                         Menu.PrintTitle(Title);
-
-                        foreach (var history in Database.SellHistories)
+                        List<User> users = Database.Context.Users.Include(u => u.BuyHistory).ThenInclude(history => history.Product).ToList();
+                        foreach (var user in users)
                         {
-                            Console.WriteLine($"----------- {history.Username} -----------");
-                            Console.WriteLine($"Time: {history.PurchaseTime.ToString("dd.MM.yyyy HH:mm")}\nProducts:");
-                            foreach (var item in history.ProductList!)
+                            Console.WriteLine($"----------- {user.Username} -----------");
+
+                            foreach (var SellHistory in user.BuyHistory)
+                            {
+                                Console.WriteLine($"{SellHistory.Product.Name} - {SellHistory.ProductAmount} {SellHistory.Product.Measurement} - {SellHistory.PurchaseTime}");
+                            }
+                            /*
+                            Console.WriteLine($"Time: {user.PurchaseTime.ToString("dd.MM.yyyy HH:mm")}\nProducts:");
+                            foreach (var item in user.ProductList!)
                                 Console.WriteLine(item);
                             Console.WriteLine();
+                            */
                         }
                         Console.WriteLine("Press any key to continue");
                         Console.ReadKey();
@@ -94,8 +102,9 @@ namespace CSharpFinalProject.MenuHelpers
                         Console.Clear();
                         Menu.PrintTitle(Title);
 
-                        double totalSell = Database.GetTotalSellCount();
-                        foreach (var category in Database.Categories)
+                        double totalSell = Database.SellHistories.Count();
+
+                        foreach (var category in Database.Context.Categories.Include(c=>c.Products))
                         {
                             Console.WriteLine(category.Name);
                             foreach (var product in category.Products!)
@@ -244,9 +253,9 @@ namespace CSharpFinalProject.MenuHelpers
             Console.Write("Enter price: ");
             string? productPrice = Console.ReadLine();
             double prPrice;
-            if (!double.TryParse(productPrice?.Replace(".", ","), out prPrice))
+            if (!double.TryParse(productPrice?.Replace(".", ","), out prPrice) || prPrice < 0)
             {
-                Console.WriteLine("Product price can't be empty!");
+                Console.WriteLine("Product price can't be empty or negative value!");
                 goto retryPrice;
             }
 
@@ -256,9 +265,9 @@ namespace CSharpFinalProject.MenuHelpers
             Console.Write("Enter stock quantity: ");
             string? productStock = Console.ReadLine();
             double prStock;
-            if (!double.TryParse(productStock?.Replace(".", ","), out prStock))
+            if (!double.TryParse(productStock?.Replace(".", ","), out prStock) || prStock < 0)
             {
-                Console.WriteLine("Product stock can't be empty!");
+                Console.WriteLine("Product stock can't be empty string or negative value!");
                 goto retryStock;
             }
             else

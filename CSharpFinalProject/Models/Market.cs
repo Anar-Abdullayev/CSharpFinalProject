@@ -5,17 +5,13 @@ namespace CSharpFinalProject.Models
     internal class Market
     {
         public string Name { get; set; }
-        public double Cashier { get; set; } = 0;
+        public decimal Cashier { get; set; } = 0;
 
-        public Market(string? name)
+        public Market(string marketName, decimal? currentCashier)
         {
-            Name = name ?? "Nameless";
-            double cash;
-            if (File.Exists(ConfigurationManager.AppSettings["dbCashierPath"]))
-                double.TryParse(File.ReadAllText(ConfigurationManager.AppSettings["dbCashierPath"]!), out cash);
-            else
-                cash = 0;
-            Cashier = cash;
+
+            this.Name = marketName;
+            this.Cashier = currentCashier ?? 0;
         }
     }
 }
