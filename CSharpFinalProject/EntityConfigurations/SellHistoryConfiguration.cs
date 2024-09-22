@@ -10,7 +10,7 @@ namespace CSharpFinalProject.EntityConfigurations
         {
             builder.HasKey(sh => sh.HistoryId);
             builder.HasOne(sh=>sh.User).WithMany(u=>u.BuyHistory).HasForeignKey(sh=>sh.UserId);
-            builder.HasOne(sh => sh.Product).WithMany(p => p.SellHistory);
+            builder.HasOne(sh => sh.Product).WithMany(p => p.SellHistory).HasForeignKey(p=>p.ProductId);
         }
     }
 }

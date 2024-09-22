@@ -104,12 +104,12 @@ namespace CSharpFinalProject.MenuHelpers
 
                         double totalSell = Database.SellHistories.Count();
 
-                        foreach (var category in Database.Context.Categories.Include(c=>c.Products))
+                        foreach (var category in Database.Context.Categories.Include(c => c.Products))
                         {
                             Console.WriteLine(category.Name);
                             foreach (var product in category.Products!)
                             {
-                                Console.WriteLine($"\t{product.Name} - Sold {product.SellCount} out of {totalSell}. Rate: {Math.Round(product.SellCount * 100 / totalSell,2)}%");
+                                Console.WriteLine($"\t{product.Name} - Sold {product.SellCount} out of {totalSell}. Rate: {Math.Round(product.SellCount * 100 / totalSell, 2)}%");
                             }
                             Console.WriteLine();
                         }
@@ -220,6 +220,8 @@ namespace CSharpFinalProject.MenuHelpers
                             else
                             {
                                 category.Name = newName;
+                                Database.Context.Categories.Update(category);
+                                Database.Context.SaveChanges();
                                 Console.WriteLine("Category name has been changed successfully! Press any key to continue...");
                             }
                         }
@@ -390,6 +392,8 @@ namespace CSharpFinalProject.MenuHelpers
                         Console.ReadKey();
                         break;
                     case "Back":
+                        Database.Context.Products.Update(product);
+                        Database.Context.SaveChanges();
                         return;
                 }
             }

@@ -9,8 +9,8 @@ namespace CSharpFinalProject
     {
         public static MarketDbContext Context = new MarketDbContext();
         public static List<Category> Categories { get; set; }
-        public static List<Product> Products { get; set; }
         public static List<User> Users { get; set; }
         public static List<SellHistory> SellHistories { get; set; }
+
     }
 }

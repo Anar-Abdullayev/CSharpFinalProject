@@ -1,6 +1,7 @@
 ﻿using CSharpFinalProject.Controllers;
 using CSharpFinalProject.Extention_Methods;
 using CSharpFinalProject.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
 namespace CSharpFinalProject.MenuHelpers
@@ -267,6 +268,7 @@ namespace CSharpFinalProject.MenuHelpers
                         Console.WriteLine("Changed successfully!");
                         break;
                     case "Save changes":
+                        Title = myUser.Name + " " + myUser.Surname;
                         Database.Context.SaveChanges();
                         Console.WriteLine("Saved successfully!");
                         break;
@@ -279,21 +281,17 @@ namespace CSharpFinalProject.MenuHelpers
         }
         private static void StartMyHistory()
         {
-            /*
             Console.Clear();
             Menu.PrintTitle(Title);
 
-            List<SellHistory> myHistory = Database.SellHistories.Where(x => x.UserID == UserController.CurrentUser!.ID).ToList();
-            foreach (var history in myHistory)
+            List<SellHistory> myHistory = Database.Context.SellHistories.Include(sh=>sh.Product).Where(x => x.UserId == UserController.CurrentUser!.UserId).ToList();
+            for (int i = 0; i < myHistory.Count; i++)
             {
-                Console.WriteLine($"Time: {history.PurchaseTime.ToString("dd.MM.yyyy HH:mm")}\nProducts:");
-                foreach (var item in history.ProductList!)
-                    Console.WriteLine(item);
-                Console.WriteLine();
+                Console.WriteLine($"{i+1}. {myHistory[i].Product.Name} - {myHistory[i].ProductAmount} {myHistory[i].Product.Measurement} - {myHistory[i].PurchaseTime}");
             }
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
-            */
+            
         }
 
         public static void Register()

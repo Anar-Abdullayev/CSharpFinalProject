@@ -10,7 +10,7 @@ namespace CSharpFinalProject.Controllers
         {
 
             Product? productForBasket = (realProduct.Clone() as Product);
-
+            productForBasket.ProductId = realProduct.ProductId;
             if (productForBasket is null)
                 throw new Exception("Null product can't be added to basket!");
 
@@ -29,7 +29,6 @@ namespace CSharpFinalProject.Controllers
 
             if (realProduct.StockAmount < productForBasket.StockAmount)
             {
-                productForBasket.StockAmount -= quantity;
                 throw new ArgumentOutOfRangeException("There is/are not enough amount in stock for this product!");
             }
 
@@ -53,37 +52,28 @@ namespace CSharpFinalProject.Controllers
 
         public static bool ConfirmBasket()
         {
-            /*
             if (CurrentUser is null)
                 throw new ArgumentNullException(nameof(CurrentUser) + " can't be null");
+            List<SellHistory> sellHistories = new List<SellHistory>(CurrentUser.Basket!.Count);
 
-            SellHistory history = new SellHistory() { UserID = CurrentUser!.ID, Username = CurrentUser.Username, PurchaseTime = DateTime.Now, TotalAmount = CurrentUser.TotalBasketCost, ProductList = new List<string>() };
-
-            foreach (var myProduct in CurrentUser.Basket!)
+            foreach (var item in CurrentUser.Basket!)
             {
-                foreach (var category in Database.Categories)
-                {
-                    if (category.Products is not null)
-                    {
-                        var foundProduct = category.Products.FirstOrDefault(x => x.Name == myProduct.Name);
-                        if (foundProduct is not null)
-                        {
-                            Database.IncreaseTotalSellCount(myProduct.StockAmount);
-                            foundProduct.SellCount += myProduct.StockAmount;
-                            foundProduct.StockAmount -= myProduct.StockAmount;
-                            string productString = myProduct.Name + " - " + myProduct.StockAmount + " quantify/mass - Total " + Math.Round(myProduct.StockAmount * myProduct.Price, 2) + " AZN";
-                            history.ProductList.Add(productString);
-                            break;
-                        }
-                    }
-                }
+                Product foundProduct = Database.Context.Products.FirstOrDefault(x => x.ProductId == item.ProductId);
+                if (foundProduct is null)
+                    throw new NullReferenceException();
+
+                foundProduct.SellCount += item.StockAmount;
+                foundProduct.StockAmount -= item.StockAmount;
+                Database.Context.Products.Update(foundProduct);
+
+                SellHistory history = new SellHistory() { UserId = CurrentUser.UserId, ProductAmount = item.StockAmount, CurrentCashier = Market.Cashier + (decimal)(item.Price * item.StockAmount), PurchaseTime = DateTime.Now, ProductId = item.ProductId };
+                sellHistories.Add(history);
             }
 
             CurrentUser.Basket.Clear();
-            Database.SellHistories.Add(history);
+            Database.Context.SellHistories.AddRange(sellHistories);
 
-            Database.SaveAll();
-            */
+            Database.Context.SaveChanges();
             return true;
         }
 

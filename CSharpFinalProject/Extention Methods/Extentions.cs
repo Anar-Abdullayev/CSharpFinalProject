@@ -16,12 +16,10 @@ namespace CSharpFinalProject.Extention_Methods
 
         internal static void PrintUserInfo(this User user)
         {
-            /*
-            Console.WriteLine("ID: " + user.ID);
+            Console.WriteLine("ID: " + user.UserId);
             Console.WriteLine("Username: " + user.Username);
             Console.WriteLine("Name: " + user.Name);
-            Console.WriteLine("Surname: " + user.Surname);
-            */
+            Console.WriteLine("Surname: " + user.Surname);   
         }
 
     }

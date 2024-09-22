@@ -51,6 +51,8 @@ namespace CSharpFinalProject.Controllers
                     throw new ArgumentException($"The product [ {name} ] already exists!");
 
                 Database.Context.Products.Add(newProduct);
+                category.Products.Add(newProduct);
+                Database.Context.SaveChanges();
                 return true;
             }
             catch (ArgumentException ex)
@@ -63,7 +65,11 @@ namespace CSharpFinalProject.Controllers
             try
             {
                 Product? productToBeDeleted = fromCategory.Products?.FirstOrDefault(x => x.Name == productName);
-                fromCategory.Products?.Remove(productToBeDeleted!);
+                if (productToBeDeleted is null)
+                    throw new NullReferenceException();
+                fromCategory.Products?.Remove(productToBeDeleted);
+                Database.Context.Products.Remove(productToBeDeleted);
+                Database.Context.SaveChanges();
                 return true;
             }
             catch (Exception ex)
